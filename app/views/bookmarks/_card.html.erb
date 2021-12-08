@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Image</dt>
       <!-- Display image_id start -->
-      <dd><%= bookmark.image_id %></dd>
+      <dd>
+        <% if @bookmark.image.present? %>
+          <%= link_to bookmark.image, bookmark.image %>
+        <% end %>
+      </dd>
       <!-- Display image_id end -->
 
       <dt>Notes</dt>
@@ -17,7 +21,11 @@
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= bookmark.user_id %></dd>
+      <dd>
+        <% if @bookmark.user.present? %>
+          <%= link_to bookmark.user, bookmark.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>

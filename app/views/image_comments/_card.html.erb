@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Image</dt>
       <!-- Display image_id start -->
-      <dd><%= image_comment.image_id %></dd>
+      <dd>
+        <% if @image_comment.image.present? %>
+          <%= link_to image_comment.image, image_comment.image %>
+        <% end %>
+      </dd>
       <!-- Display image_id end -->
 
       <dt>Comment</dt>
@@ -17,7 +21,11 @@
 
       <dt>Commentor</dt>
       <!-- Display commentor_id start -->
-      <dd><%= image_comment.commentor_id %></dd>
+      <dd>
+        <% if @image_comment.commentor.present? %>
+          <%= link_to image_comment.commentor, image_comment.commentor %>
+        <% end %>
+      </dd>
       <!-- Display commentor_id end -->
 
     </dl>
