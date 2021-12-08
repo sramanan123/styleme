@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Image</dt>
-      <!-- Display image_id start -->
       <dd>
         <% if @image_comment.image.present? %>
           <%= link_to image_comment.image, image_comment.image %>
         <% end %>
       </dd>
-      <!-- Display image_id end -->
 
       <dt>Comment</dt>
-      <!-- Display comment start -->
       <dd><%= image_comment.comment %></dd>
-      <!-- Display comment end -->
 
       <dt>Commentor</dt>
-      <!-- Display commentor_id start -->
       <dd>
         <% if @image_comment.commentor.present? %>
           <%= link_to image_comment.commentor, image_comment.commentor %>
         <% end %>
       </dd>
-      <!-- Display commentor_id end -->
 
     </dl>
 
@@ -35,7 +29,6 @@
         <%= link_to_show_or_back image_comment, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link image_comment start -->
       <div class="col">
         <% if current_user == @image_comment.commentor %>
           <%= link_to edit_image_comment_url(image_comment), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -43,9 +36,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link image_comment end -->
 
-      <!-- Delete link image_comment start -->
       <div class="col">
         <% if current_user == @image_comment.commentor %>
           <%= link_to image_comment, method: :delete, data: { confirm: "Do you really want to delete this image_comment?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -53,7 +44,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link image_comment end -->
     </div>
   </div>
 

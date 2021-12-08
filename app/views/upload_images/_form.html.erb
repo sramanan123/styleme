@@ -1,7 +1,6 @@
 <% was_validated = upload_image.errors.any? %>
 
 <%= form_with(model: upload_image, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for image start -->
   <div class="form-group">
     <% image_class = "form-control" %>
     <% image_was_invalid = upload_image.errors.include?(:image) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :image %>
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
     <% if image_was_invalid %>
       <% upload_image.errors.full_messages_for(:image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for image end -->
-  <!-- Label and input for topstyle start -->
   <div class="form-group">
     <% topstyle_class = "form-control" %>
     <% topstyle_was_invalid = upload_image.errors.include?(:topstyle) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :topstyle %>
-    <!-- Input for topstyle start -->
     <%= f.text_field :topstyle, class: topstyle_class, placeholder: "Enter topstyle" %>
-    <!-- Input for topstyle end -->
     <% if topstyle_was_invalid %>
       <% upload_image.errors.full_messages_for(:topstyle).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for topstyle end -->
-  <!-- Label and input for topcolor start -->
   <div class="form-group">
     <% topcolor_class = "form-control" %>
     <% topcolor_was_invalid = upload_image.errors.include?(:topcolor) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :topcolor %>
-    <!-- Input for topcolor start -->
     <%= f.text_field :topcolor, class: topcolor_class, placeholder: "Enter topcolor" %>
-    <!-- Input for topcolor end -->
     <% if topcolor_was_invalid %>
       <% upload_image.errors.full_messages_for(:topcolor).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for topcolor end -->
-  <!-- Label and input for bottomstyle start -->
   <div class="form-group">
     <% bottomstyle_class = "form-control" %>
     <% bottomstyle_was_invalid = upload_image.errors.include?(:bottomstyle) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :bottomstyle %>
-    <!-- Input for bottomstyle start -->
     <%= f.text_field :bottomstyle, class: bottomstyle_class, placeholder: "Enter bottomstyle" %>
-    <!-- Input for bottomstyle end -->
     <% if bottomstyle_was_invalid %>
       <% upload_image.errors.full_messages_for(:bottomstyle).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for bottomstyle end -->
-  <!-- Label and input for bottomcolor start -->
   <div class="form-group">
     <% bottomcolor_class = "form-control" %>
     <% bottomcolor_was_invalid = upload_image.errors.include?(:bottomcolor) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :bottomcolor %>
-    <!-- Input for bottomcolor start -->
     <%= f.text_field :bottomcolor, class: bottomcolor_class, placeholder: "Enter bottomcolor" %>
-    <!-- Input for bottomcolor end -->
     <% if bottomcolor_was_invalid %>
       <% upload_image.errors.full_messages_for(:bottomcolor).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for bottomcolor end -->
-  <!-- Label and input for shoestyle start -->
   <div class="form-group">
     <% shoestyle_class = "form-control" %>
     <% shoestyle_was_invalid = upload_image.errors.include?(:shoestyle) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :shoestyle %>
-    <!-- Input for shoestyle start -->
     <%= f.text_field :shoestyle, class: shoestyle_class, placeholder: "Enter shoestyle" %>
-    <!-- Input for shoestyle end -->
     <% if shoestyle_was_invalid %>
       <% upload_image.errors.full_messages_for(:shoestyle).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,8 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for shoestyle end -->
-  <!-- Label and input for shoecolor start -->
   <div class="form-group">
     <% shoecolor_class = "form-control" %>
     <% shoecolor_was_invalid = upload_image.errors.include?(:shoecolor) %>
@@ -171,9 +146,7 @@
     <% end %>
 
     <%= f.label :shoecolor %>
-    <!-- Input for shoecolor start -->
     <%= f.text_field :shoecolor, class: shoecolor_class, placeholder: "Enter shoecolor" %>
-    <!-- Input for shoecolor end -->
     <% if shoecolor_was_invalid %>
       <% upload_image.errors.full_messages_for(:shoecolor).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -182,8 +155,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for shoecolor end -->
-  <!-- Label and input for vibe start -->
   <div class="form-group">
     <% vibe_class = "form-control" %>
     <% vibe_was_invalid = upload_image.errors.include?(:vibe) %>
@@ -197,9 +168,7 @@
     <% end %>
 
     <%= f.label :vibe %>
-    <!-- Input for vibe start -->
     <%= f.select :vibe, options_for_select(UploadImage.vibes.keys), {}, class: "form-control" %>
-    <!-- Input for vibe end -->
     <% if vibe_was_invalid %>
       <% upload_image.errors.full_messages_for(:vibe).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -208,6 +177,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for vibe end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

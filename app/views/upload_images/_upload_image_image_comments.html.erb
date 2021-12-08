@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @upload_image.image_comments.each do |image_comment| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to image_comment, image_comment %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == image_comment.commentor %>
           <%= link_to image_comment, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="upload_image_image_comments_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "upload_images/upload_image_image_comments_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

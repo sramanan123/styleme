@@ -1,31 +1,17 @@
-<!-- Form image_comment start -->
 <%= form_with(model: @image_comment, local: true) do |f| %>
-<!-- Form image_comment end -->
 
-  <!-- Label and input for image_id start -->
   <div class="form-group">
     <%= f.label :image_id %>
 
-    <!-- Input for image_id start -->
     <%= f.collection_select :image_id, UploadImage.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for image_id end -->
   </div>
-  <!-- Label and input for image_id end -->
 
-  <!-- Label and input for comment start -->
   <div class="form-group">
     <%= f.label :comment %>
-    <!-- Input for comment start -->
     <%= f.text_area :comment, rows: "3", class: "form-control" %>
-    <!-- Input for comment end -->
   </div>
-  <!-- Label and input for comment end -->
 
-  <!-- Label and input for commentor_id start -->
-  <!-- Input for commentor_id start -->
   <%= f.hidden_field :commentor_id, value: @user.id %>
-  <!-- Input for commentor_id end -->
-  <!-- Label and input for commentor_id end -->
 
   <%= f.submit "Create image comment", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
