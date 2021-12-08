@@ -8,6 +8,8 @@ class UploadImagesController < ApplicationController
 
   # GET /upload_images/1
   def show
+    @bookmark = Bookmark.new
+    @image_comment = ImageComment.new
   end
 
   # GET /upload_images/new

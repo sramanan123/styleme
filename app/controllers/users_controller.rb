@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @bookmark = Bookmark.new
+    @image_comment = ImageComment.new
   end
 
   # GET /users/new
