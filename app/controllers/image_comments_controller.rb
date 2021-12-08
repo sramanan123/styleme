@@ -42,8 +42,14 @@ class ImageCommentsController < ApplicationController
   # DELETE /image_comments/1
   def destroy
     @image_comment.destroy
-    redirect_to image_comments_url, notice: 'Image comment was successfully destroyed.'
+    message = "ImageComment was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to image_comments_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
