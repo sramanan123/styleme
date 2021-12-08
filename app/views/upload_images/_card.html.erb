@@ -1,0 +1,76 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Upload Image #<%= upload_image.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Image</dt>
+      <!-- Display image start -->
+      <dd><%= upload_image.image %></dd>
+      <!-- Display image end -->
+
+      <dt>Topstyle</dt>
+      <!-- Display topstyle start -->
+      <dd><%= upload_image.topstyle %></dd>
+      <!-- Display topstyle end -->
+
+      <dt>Topcolor</dt>
+      <!-- Display topcolor start -->
+      <dd><%= upload_image.topcolor %></dd>
+      <!-- Display topcolor end -->
+
+      <dt>Bottomstyle</dt>
+      <!-- Display bottomstyle start -->
+      <dd><%= upload_image.bottomstyle %></dd>
+      <!-- Display bottomstyle end -->
+
+      <dt>Bottomcolor</dt>
+      <!-- Display bottomcolor start -->
+      <dd><%= upload_image.bottomcolor %></dd>
+      <!-- Display bottomcolor end -->
+
+      <dt>Shoestyle</dt>
+      <!-- Display shoestyle start -->
+      <dd><%= upload_image.shoestyle %></dd>
+      <!-- Display shoestyle end -->
+
+      <dt>Shoecolor</dt>
+      <!-- Display shoecolor start -->
+      <dd><%= upload_image.shoecolor %></dd>
+      <!-- Display shoecolor end -->
+
+      <dt>Vibe</dt>
+      <!-- Display vibe start -->
+      <dd><%= upload_image.vibe %></dd>
+      <!-- Display vibe end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back upload_image, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link upload_image start -->
+      <div class="col">
+        <%= link_to edit_upload_image_url(upload_image), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link upload_image end -->
+
+      <!-- Delete link upload_image start -->
+      <div class="col">
+        <%= link_to upload_image, method: :delete, data: { confirm: "Do you really want to delete this upload_image?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link upload_image end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(upload_image.updated_at) %> ago
+  </div>
+</div>
