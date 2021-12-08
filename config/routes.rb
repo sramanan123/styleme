@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "upload_images#index"
   resources :bookmarks
   resources :image_comments
   resources :upload_images
