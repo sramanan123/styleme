@@ -8,6 +8,9 @@ class BookmarkResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :image,
+             resource: UploadImageResource
+
   belongs_to :user
 
   # Indirect associations
