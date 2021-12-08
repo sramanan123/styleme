@@ -8,6 +8,9 @@ class ImageCommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :image,
+             resource: UploadImageResource
+
   belongs_to :commentor,
              resource: UserResource
 

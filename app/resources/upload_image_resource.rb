@@ -13,6 +13,9 @@ class UploadImageResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :image_comments,
+             foreign_key: :image_id
+
   # Indirect associations
 
 end
