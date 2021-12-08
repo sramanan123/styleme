@@ -198,7 +198,7 @@
 
     <%= f.label :vibe %>
     <!-- Input for vibe start -->
-    <%= f.number_field :vibe, class: vibe_class, placeholder: "Enter vibe" %>
+    <%= f.select :vibe, options_for_select(UploadImage.vibes.keys), {}, class: "form-control" %>
     <!-- Input for vibe end -->
     <% if vibe_was_invalid %>
       <% upload_image.errors.full_messages_for(:vibe).each do |message| %>
