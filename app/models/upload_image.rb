@@ -3,6 +3,10 @@ class UploadImage < ApplicationRecord
 
   # Direct associations
 
+  has_many   :image_comments,
+             :foreign_key => "image_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

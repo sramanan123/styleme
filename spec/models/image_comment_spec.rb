@@ -4,6 +4,8 @@ RSpec.describe ImageComment, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:image) }
+
     it { should belong_to(:commentor) }
 
     end
