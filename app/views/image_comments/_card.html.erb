@@ -29,16 +29,20 @@
 
       <!-- Edit link image_comment start -->
       <div class="col">
-        <%= link_to edit_image_comment_url(image_comment), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @image_comment.commentor %>
+          <%= link_to edit_image_comment_url(image_comment), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link image_comment end -->
 
       <!-- Delete link image_comment start -->
       <div class="col">
-        <%= link_to image_comment, method: :delete, data: { confirm: "Do you really want to delete this image_comment?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @image_comment.commentor %>
+          <%= link_to image_comment, method: :delete, data: { confirm: "Do you really want to delete this image_comment?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link image_comment end -->

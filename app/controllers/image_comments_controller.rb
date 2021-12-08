@@ -1,4 +1,6 @@
 class ImageCommentsController < ApplicationController
+  before_action :current_user_must_be_image_comment_commentor, only: [:edit, :update, :destroy] 
+
   before_action :set_image_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /image_comments
@@ -57,6 +59,14 @@ class ImageCommentsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_image_comment_commentor
+    set_image_comment
+    unless current_user == @image_comment.commentor
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_image_comment
       @image_comment = ImageComment.find(params[:id])
