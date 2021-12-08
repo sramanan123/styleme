@@ -1,4 +1,6 @@
 class UploadImage < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   enum vibe: {"casual"=>0, "evening_wear"=>1, "professional"=>2} 
 
   # Direct associations
