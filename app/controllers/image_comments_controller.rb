@@ -4,25 +4,20 @@ class ImageCommentsController < ApplicationController
 
   before_action :set_image_comment, only: %i[show edit update destroy]
 
-  # GET /image_comments
   def index
     @q = ImageComment.ransack(params[:q])
     @image_comments = @q.result(distinct: true).includes(:commentor,
                                                          :image).page(params[:page]).per(10)
   end
 
-  # GET /image_comments/1
   def show; end
 
-  # GET /image_comments/new
   def new
     @image_comment = ImageComment.new
   end
 
-  # GET /image_comments/1/edit
   def edit; end
 
-  # POST /image_comments
   def create
     @image_comment = ImageComment.new(image_comment_params)
 
@@ -38,7 +33,6 @@ class ImageCommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /image_comments/1
   def update
     if @image_comment.update(image_comment_params)
       redirect_to @image_comment,
@@ -48,7 +42,6 @@ class ImageCommentsController < ApplicationController
     end
   end
 
-  # DELETE /image_comments/1
   def destroy
     @image_comment.destroy
     message = "ImageComment was successfully deleted."
@@ -69,12 +62,10 @@ class ImageCommentsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_image_comment
     @image_comment = ImageComment.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def image_comment_params
     params.require(:image_comment).permit(:image_id, :comment, :commentor_id)
   end
