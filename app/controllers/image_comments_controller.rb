@@ -5,7 +5,8 @@ class ImageCommentsController < ApplicationController
 
   # GET /image_comments
   def index
-    @image_comments = ImageComment.page(params[:page]).per(10)
+    @q = ImageComment.ransack(params[:q])
+    @image_comments = @q.result(:distinct => true).includes(:commentor, :image).page(params[:page]).per(10)
   end
 
   # GET /image_comments/1

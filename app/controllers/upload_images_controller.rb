@@ -3,7 +3,8 @@ class UploadImagesController < ApplicationController
 
   # GET /upload_images
   def index
-    @upload_images = UploadImage.page(params[:page]).per(10)
+    @q = UploadImage.ransack(params[:q])
+    @upload_images = @q.result(:distinct => true).includes(:image_comments, :bookmarks).page(params[:page]).per(10)
   end
 
   # GET /upload_images/1
