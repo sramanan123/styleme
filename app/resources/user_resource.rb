@@ -10,6 +10,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :image_comments,
+             foreign_key: :commentor_id
+
   # Indirect associations
 
 end
