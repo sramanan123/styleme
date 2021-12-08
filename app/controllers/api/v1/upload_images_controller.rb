@@ -13,7 +13,7 @@ class Api::V1::UploadImagesController < Api::V1::GraphitiController
     upload_image = UploadImageResource.build(params)
 
     if upload_image.save
-      render jsonapi: upload_image, status: 201
+      render jsonapi: upload_image, status: :created
     else
       render jsonapi_errors: upload_image
     end
@@ -33,7 +33,7 @@ class Api::V1::UploadImagesController < Api::V1::GraphitiController
     upload_image = UploadImageResource.find(params)
 
     if upload_image.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: upload_image
     end

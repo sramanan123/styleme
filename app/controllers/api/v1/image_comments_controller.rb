@@ -13,7 +13,7 @@ class Api::V1::ImageCommentsController < Api::V1::GraphitiController
     image_comment = ImageCommentResource.build(params)
 
     if image_comment.save
-      render jsonapi: image_comment, status: 201
+      render jsonapi: image_comment, status: :created
     else
       render jsonapi_errors: image_comment
     end
@@ -33,7 +33,7 @@ class Api::V1::ImageCommentsController < Api::V1::GraphitiController
     image_comment = ImageCommentResource.find(params)
 
     if image_comment.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: image_comment
     end

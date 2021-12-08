@@ -2,10 +2,10 @@ class ImageComment < ApplicationRecord
   # Direct associations
 
   belongs_to :image,
-             :class_name => "UploadImage"
+             class_name: "UploadImage"
 
   belongs_to :commentor,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class ImageComment < ApplicationRecord
   def to_s
     image.to_s
   end
-
 end

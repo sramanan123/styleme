@@ -2,7 +2,7 @@ class Bookmark < ApplicationRecord
   # Direct associations
 
   belongs_to :image,
-             :class_name => "UploadImage"
+             class_name: "UploadImage"
 
   belongs_to :user
 
@@ -15,5 +15,4 @@ class Bookmark < ApplicationRecord
   def to_s
     image.to_s
   end
-
 end

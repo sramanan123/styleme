@@ -16,5 +16,4 @@ class UserResource < ApplicationResource
              foreign_key: :commentor_id
 
   # Indirect associations
-
 end

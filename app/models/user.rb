@@ -1,14 +1,13 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :image_comments,
-             :foreign_key => "commentor_id",
-             :dependent => :destroy
+             foreign_key: "commentor_id",
+             dependent: :destroy
 
   # Indirect associations
 

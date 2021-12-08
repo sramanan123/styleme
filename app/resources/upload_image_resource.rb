@@ -20,5 +20,4 @@ class UploadImageResource < ApplicationResource
              foreign_key: :image_id
 
   # Indirect associations
-
 end

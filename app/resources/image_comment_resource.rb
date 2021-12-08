@@ -15,5 +15,4 @@ class ImageCommentResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end
