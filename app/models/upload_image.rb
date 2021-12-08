@@ -3,6 +3,10 @@ class UploadImage < ApplicationRecord
 
   # Direct associations
 
+  has_many   :bookmarks,
+             :foreign_key => "image_id",
+             :dependent => :destroy
+
   has_many   :image_comments,
              :foreign_key => "image_id",
              :dependent => :destroy
