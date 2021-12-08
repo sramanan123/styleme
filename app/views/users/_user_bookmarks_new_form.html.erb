@@ -7,7 +7,7 @@
     <%= f.label :image_id %>
 
     <!-- Input for image_id start -->
-    <%= f.text_field :image_id, class: "form-control" %>
+    <%= f.collection_select :image_id, UploadImage.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for image_id end -->
   </div>
   <!-- Label and input for image_id end -->
