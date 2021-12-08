@@ -3,7 +3,7 @@ class UploadImagesController < ApplicationController
 
   # GET /upload_images
   def index
-    @upload_images = UploadImage.all
+    @upload_images = UploadImage.page(params[:page]).per(10)
   end
 
   # GET /upload_images/1
