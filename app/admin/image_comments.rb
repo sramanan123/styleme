@@ -1,5 +1,7 @@
 ActiveAdmin.register ImageComment do
 
+ permit_params :image_id, :comment, :commentor_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
