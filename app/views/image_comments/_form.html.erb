@@ -1,0 +1,83 @@
+<% was_validated = image_comment.errors.any? %>
+
+<%= form_with(model: image_comment, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for image_id start -->
+  <div class="form-group">
+    <% image_class = "form-control" %>
+    <% image_was_invalid = image_comment.errors.include?(:image) %>
+
+    <% if was_validated %>
+      <% if image_was_invalid %>
+        <% image_class << " is-invalid" %>
+      <% else %>
+        <% image_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :image_id %>
+    <!-- Input for image_id start -->
+    <%= f.number_field :image_id, class: image_class, placeholder: "Enter image" %>
+    <!-- Input for image_id end -->
+    <% if image_was_invalid %>
+      <% image_comment.errors.full_messages_for(:image).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for image_id end -->
+  <!-- Label and input for comment start -->
+  <div class="form-group">
+    <% comment_class = "form-control" %>
+    <% comment_was_invalid = image_comment.errors.include?(:comment) %>
+
+    <% if was_validated %>
+      <% if comment_was_invalid %>
+        <% comment_class << " is-invalid" %>
+      <% else %>
+        <% comment_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :comment %>
+    <!-- Input for comment start -->
+    <%= f.text_area :comment, class: comment_class, placeholder: "Enter comment" %>
+    <!-- Input for comment end -->
+    <% if comment_was_invalid %>
+      <% image_comment.errors.full_messages_for(:comment).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for comment end -->
+  <!-- Label and input for commentor_id start -->
+  <div class="form-group">
+    <% commentor_class = "form-control" %>
+    <% commentor_was_invalid = image_comment.errors.include?(:commentor) %>
+
+    <% if was_validated %>
+      <% if commentor_was_invalid %>
+        <% commentor_class << " is-invalid" %>
+      <% else %>
+        <% commentor_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :commentor_id %>
+    <!-- Input for commentor_id start -->
+    <%= f.number_field :commentor_id, class: commentor_class, placeholder: "Enter commentor" %>
+    <!-- Input for commentor_id end -->
+    <% if commentor_was_invalid %>
+      <% image_comment.errors.full_messages_for(:commentor).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for commentor_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
