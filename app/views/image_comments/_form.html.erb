@@ -68,7 +68,7 @@
 
     <%= f.label :commentor_id %>
     <!-- Input for commentor_id start -->
-    <%= f.number_field :commentor_id, class: commentor_class, placeholder: "Enter commentor" %>
+    <%= f.collection_select :commentor_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for commentor_id end -->
     <% if commentor_was_invalid %>
       <% image_comment.errors.full_messages_for(:commentor).each do |message| %>
